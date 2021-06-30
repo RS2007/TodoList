@@ -1,0 +1,149 @@
+:root {
+    --background: #EA5F8E;
+    --background2: #E25B88;
+    --todoback: #3D434B;
+    --font1: #DCE0E3;
+    --font2: #9A9FA7;
+    --check: #989CAD;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient( 45deg, var(--background2), var(--background));
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--font1);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.container {
+    background-color: var(--todoback);
+    width: 30%;
+    min-width: 309.2px;
+    max-width: 409.2px;
+    height: 492px;
+    margin-top: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.days {
+    display: flex;
+    justify-content: space-between;
+    height: 8%;
+    border-bottom: 2px solid #474e57;
+}
+
+.thediv {
+    display: inline-block;
+    margin: auto;
+    width: 25%;
+    text-align: center;
+}
+
+.display-day {
+    display: flex;
+    height: 25%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.displayday {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.displaydate {
+    font-size: 1rem;
+    color: var(--font2);
+}
+
+.addtask {
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=text] {
+    width: 100%;
+    height: 100%;
+    min-height: 30px;
+    min-width: 250px;
+    max-width: 350px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 0px;
+    color: var(--font2);
+}
+
+input::placeholder {
+    color: var(--font2);
+}
+
+.task {
+    /*display: grid;
+    grid-template-columns: 20% 83%;*/
+    /* padding-bottom: 1em; */
+    width: 80%;
+    margin: 1em auto;
+    padding: 1em 0;
+}
+
+input[type=checkbox] {
+    width: 100%;
+    height: 100%;
+    background-color: var(--todoback);
+    appearance: none;
+    border: 1px solid white;
+}
+
+input[type=checkbox]:checked {
+    background-color: rgba(59, 223, 223, 0.733);
+}
+
+.checkbox {
+    background-color: var(--check);
+    width: 1.2rem;
+    margin-left: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.tsk {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    padding-bottom: 1em;
+}
+
+button[type=submit] {
+    width: 50%;
+    height: 94%;
+    background-color: var(--todoback);
+    border: 0px;
+    cursor: pointer;
+}
+
+.trash {
+    color: var(--font2);
+    width: 5rem;
+    height: 5rem;
+    padding: 4px;
+    border: 1px solid white;
+}
+
+.btn {
+    position: relative;
+    bottom: 30px;
+    left: 232px;
+    max-width: 30px;
+    min-height: 30px;
+    border: 2px solid white;
+    color: white;
+}
