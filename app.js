@@ -1,23 +1,38 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-const bodyParser = require('body-parser')
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-const loginRoute = require('./routes/loginRoute')
-const todoRoute = require('./routes/todoRoute')
-
-
 dotenv.config()
-app.set('view engines', 'ejs')
-
-mongoose.connect(process.env['DB_CONNECT'], { useNewUrlParser: true, useUnifiedTopology: true })
-
+const mongoose = require('mongoose')
+const cookieParser = require('cookie-parser')
+const authRoutes = require('./routes/authRoutes')
+const todoRoutes = require('./routes/todoRoutes')
+const requireAuth = require('./middleware/authMiddleware')
+const mongoDB = process.env.DB
 const port = 80
-app.use(loginRoute)
-app.use(todoRoute)
+
+
+app.use(express.urlencoded())
+app.use(express.json())
 app.use(express.static('public'))
+app.use(cookieParser())
+
+app.set('view engine', 'ejs')
+
+const mongooseConnect = async() => {
+    await mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+    try {
+        console.log('connected to database')
+    } catch (err) {
+        console.log(err)
+    }
+}
+mongooseConnect();
+let arr = []
 
 
-app.listen(port, () => console.log('server up and running'))
+app.use(authRoutes)
+app.use('/todo', todoRoutes)
+
+app.listen(port, () => {
+    console.log('sever up and runnning');
+})

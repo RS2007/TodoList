@@ -6,10 +6,13 @@ const getFullYear = date.getFullYear();
 const displaydate = document.getElementsByClassName('displaydate')[0];
 const todoInput = document.getElementById('todoInput');
 const container = document.getElementsByClassName('container')[0];
-const todo = todoInput.value;
+const todovalue = todoInput.value;
 const task = document.getElementsByClassName('task')[0];
+const form = document.getElementById('form')
+const form2 = document.getElementById('form2')
+let arr = []
 
-
+console.log(todoInput)
 
 const displayday = document.getElementsByClassName('displayday')[0];
 switch (getDay) {
@@ -82,10 +85,8 @@ switch (getMonth) {
 displaydate.innerHTML = `${getDate} ${month} ${getFullYear}`;
 todoInput.addEventListener('keydown', (event) => {
     if (event.key == "Enter") {
-        document.getElementById("form").submit();
+        form.submit();
+
+
     }
 })
-
-let deleteTodo = () => {
-    document.getElementById("form2").submit();
-}

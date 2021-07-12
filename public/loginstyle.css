@@ -114,3 +114,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+span {
+    background-color: red;
+    color: white;
+    float: left;
+    margin-bottom: 30px;
+}

@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="/todo.css">
 
 <body>
+    <nav>
+        <form method="GET" action="/logout"><button type="submit">LogOut</button></form>
+    </nav>
     <div class="container">
         <div class="days">
             <div class="day thediv">Daya</div>
@@ -25,20 +28,21 @@
             <div class="displaydate">Date</div>
         </div>
         <div class="addtask">
-            <form action="/todo" method="POST" id="form">
+            <form id="form" method="POST" action="/todo/add">
                 <input type="text" class="text" id="todoInput" placeholder="Add a task..." name="todo">
             </form>
         </div>
         <div class="task">
-            <% arr.forEach(element => { %>
+            <% list.forEach(element => { %>
                 <div class="tsk">
 
                     <span class="checkbox"><input type="checkbox" name="todoncheck" id="todoncheck"></span>
                     <div class="tododesc">
                         <%=element.todo%>
                     </div>
+
                     <form method="POST" action="/todo/delete?id=<%= element._id %>" id="form2">
-                        <button type="submit" onclick="deleteTodo"><i class="bi bi-trash trash"></i></button>
+                        <button type="submit"><i class="bi bi-trash trash"></i></button>
                     </form>
                 </div>
 
